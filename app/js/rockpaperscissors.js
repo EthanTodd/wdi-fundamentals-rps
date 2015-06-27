@@ -41,6 +41,21 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+    if (playerMove === computerMove) {
+        winner = 'tie';
+    }
+    else if (playerMove === 'rock' && computerMove === 'scissors') {
+        winner = 'player';
+    }
+    else if (playerMove === 'scissors' && computerMove === 'paper') {
+        winner = 'player';
+    }
+    else if (playerMove === 'paper' && computerMove === 'rock'){
+        winner = 'player';
+    }    
+    else {
+        winner = 'computer';
+    }
     return winner;
 }
 
@@ -50,6 +65,20 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    while (playerWins < 5 && computerWins < 5) {
+        colsole.log('The score is currently' + playerWins + 'for you, and' + computerWins + 'for the computer')
+    }
+        if (winner == 'player') {
+            playerWins += 1;
+            console.log('You chose' + playerMove + 'while the computer chose' + computerMove + "You win! Let's play again.");
+        }
+        else if (winner == 'computer') {
+            computerWins += 1;
+            console.log('you chose' + playerMove + 'while the computer chose' + computerMove "I'm sorry, the computer has won. Try again!");
+        }
+        else ('player' == 'winner') {
+            console.log('you and the computer both chose' + playerMove + "It's a tie! Try again!");
+        }
     return [playerWins, computerWins];
 }
 
